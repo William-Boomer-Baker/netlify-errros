@@ -1,6 +1,6 @@
 import { Router } from "express";
 import passport from "passport";
-import { Strategy } from "passport-google-oauth20";
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 import get from "lodash/fp/get";
 
 const router = Router();
@@ -15,7 +15,7 @@ router.use((req, _res, next) => {
     console.info(`Init Google Auth strategy on host ${host}`);
 
     passport.use(
-      new Strategy(
+      new GoogleStrategy(
         {
           clientID: process.env.GOOGLE_CLIENT_ID,
           clientSecret: process.env.GOOGLE_CLIENT_SECRET,
