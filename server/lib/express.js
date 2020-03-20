@@ -3,7 +3,7 @@ import sessions from "client-sessions";
 import passport from "passport";
 import cookieParser from "cookie-parser";
 
-import router from "./strategies/google";
+import google from "./strategies/google";
 
 const app = express();
 
@@ -34,6 +34,6 @@ app.get("/.netlify/functions/auth/logout", (req, res) => {
   res.send({ success: 1, code: "user.logout" });
 });
 
-app.use("/.netlify/functions/auth", router);
+app.use("/.netlify/functions/auth", google);
 
 export default app;
