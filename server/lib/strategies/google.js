@@ -11,7 +11,7 @@ router.use((req, _res, next) => {
   } = req;
 
   // Note: Netlify functions don't have the host url, so we need to pass it explicitly
-  if (!passport._strategy(Strategy.name) && host) {
+  if (!passport._strategy(GoogleStrategy.name) && host) {
     console.info(`Init Google Auth strategy on host ${host}`);
 
     passport.use(
